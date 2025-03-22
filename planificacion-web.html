@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificación de Turnos (Abril-Septiembre 2025)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            background-color: #ecf0f1;
+            cursor: pointer;
+            border: 1px solid #bdc3c7;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+        }
+        .tab.active {
+            background-color: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #bdc3c7;
+            border-radius: 0 5px 5px 5px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .week-title {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        .vacation {
+            background-color: #f1c40f;
+            color: #333;
+        }
+        .employee1 {
+            color: #e74c3c;
+        }
+        .employee2 {
+            color: #2ecc71;
+        }
+        .employee3 {
+            color: #9b59b6;
+        }
+        .tarde {
+            font-style: italic;
+            font-weight: bold;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .month-title {
+            background-color: #34495e;
+            color: white;
+            padding: 10px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        .legend {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border: 1px solid #e9ecef;
+        }
+        .legend-item {
+            margin-bottom: 5px;
+        }
+        @media (max-width: 768px) {
+            table {
+                font-size: 12px;
+            }
+            th, td {
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Planificación de Turnos</h1>
+            <p>Abril - Septiembre 2025</p>
+        </header>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="openTab(event, 'opcion1')">Opción 1: Solo Mañanas</div>
+            <div class="tab" onclick="openTab(event, 'opcion2')">Opción 2: Mañanas + Tardes</div>
+        </div>
+        
+        <div id="opcion1" class="tab-content active">
+            <h2>Opción 1: Solo mañanas (6:00-14:30, L-D)</h2>
+            
+            <div class="legend">
+                <h3>Leyenda:</h3>
+                <p class="legend-item"><span class="employee1">■</span> Empleado 1 (E1): 40 horas</p>
+                <p class="legend-item"><span class="employee2">■</span> Empleado 2 (E2): 40 horas</p>
+                <p class="legend-item"><span class="employee3">■</span> Empleado 3 (E3): 40 horas</p>
+                <p class="legend-item"><span style="background-color: #f1c40f; padding: 0 5px;">VAC</span> Vacaciones</p>
+            </div>
+            
+            <h3>Patrón base de rotación (3 semanas)</h3>
+            <table>
+                <tr>
+                    <th>Semana</th>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miércoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                    <th>Sábado</th>
+                    <th>Domingo</th>
+                </tr>
+                <tr>
+                    <td class="week-title">1</td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                </tr>
+                <tr>
+                    <td class="week-title">2</td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                </tr>
+                <tr>
+                    <td class="week-title">3</td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                </tr>
+            </table>
+            
+            <h3>Descansos semanales por empleado:</h3>
+            <ul>
+                <li><span class="employee1">Empleado 1</span>: Semana 1: Sáb-Dom, Semana 2: Mié-Jue, Semana 3: Lun-Mar</li>
+                <li><span class="employee2">Empleado 2</span>: Semana 1: Mié-Jue, Semana 2: Sáb-Dom, Semana 3: Vie-Sáb</li>
+                <li><span class="employee3">Empleado 3</span>: Semana 1: Vie-Sáb, Semana 2: Lun-Mar, Semana 3: Mié-Jue</li>
+            </ul>
+            
+            <h3>Calendario de vacaciones:</h3>
+            <ul>
+                <li><span class="employee1">Empleado 1</span>: 1-15 mayo y 1-15 agosto</li>
+                <li><span class="employee2">Empleado 2</span>: 16-31 mayo y 16-31 agosto</li>
+                <li><span class="employee3">Empleado 3</span>: 1-15 junio y 1-15 septiembre</li>
+            </ul>
+            
+            <div class="month-title">
+                <h3>ABRIL 2025</h3>
+            </div>
+            <p>Semanas 1-4: Patrón base de rotación</p>
+            
+            <div class="month-title">
+                <h3>MAYO 2025</h3>
+            </div>
+            <p>1-15: Vacaciones de <span class="employee1">Empleado 1</span> (E2 y E3 cubren)<br>
+            16-31: Vacaciones de <span class="employee2">Empleado 2</span> (E1 y E3 cubren)</p>
+            
+            <div class="month-title">
+                <h3>JUNIO 2025</h3>
+            </div>
+            <p>1-15: Vacaciones de <span class="employee3">Empleado 3</span> (E1 y E2 cubren)<br>
+            16-30: Retorno al patrón base de rotación</p>
+            
+            <div class="month-title">
+                <h3>JULIO 2025</h3>
+            </div>
+            <p>Todo el mes: Patrón base de rotación</p>
+            
+            <div class="month-title">
+                <h3>AGOSTO 2025</h3>
+            </div>
+            <p>1-15: Vacaciones de <span class="employee1">Empleado 1</span> (E2 y E3 cubren)<br>
+            16-31: Vacaciones de <span class="employee2">Empleado 2</span> (E1 y E3 cubren)</p>
+            
+            <div class="month-title">
+                <h3>SEPTIEMBRE 2025</h3>
+            </div>
+            <p>1-15: Vacaciones de <span class="employee3">Empleado 3</span> (E1 y E2 cubren)<br>
+            16-30: Retorno al patrón base de rotación</p>
+        </div>
+        
+        <div id="opcion2" class="tab-content">
+            <h2>Opción 2: Mañanas todos los días (6:00-14:30) + tardes jueves y viernes (17:00-20:00)</h2>
+            
+            <div class="legend">
+                <h3>Leyenda:</h3>
+                <p class="legend-item"><span class="employee1">■</span> Empleado 1 (E1): 40 horas</p>
+                <p class="legend-item"><span class="employee2">■</span> Empleado 2 (E2): 40 horas</p>
+                <p class="legend-item"><span class="employee3">■</span> Empleado 3 (E3): 40 horas</p>
+                <p class="legend-item"><span class="tarde">Tarde</span>: Turno de tarde (17:00-20:00)</p>
+                <p class="legend-item"><span style="background-color: #f1c40f; padding: 0 5px;">VAC</span> Vacaciones</p>
+            </div>
+            
+            <h3>Patrón base de rotación (3 semanas)</h3>
+            <table>
+                <tr>
+                    <th>Semana</th>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miércoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                    <th>Sábado</th>
+                    <th>Domingo</th>
+                </tr>
+                <tr>
+                    <td class="week-title" rowspan="2">1</td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class="tarde employee3">Tarde: E3</span></td>
+                    <td><span class="tarde employee2">Tarde: E2</span></td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td class="week-title" rowspan="2">2</td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class="tarde employee2">Tarde: E2</span></td>
+                    <td><span class="tarde employee1">Tarde: E1</span></td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td class="week-title" rowspan="2">3</td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee2">E2</span></td>
+                    <td><span class="employee1">E1</span>, <span class="employee3">E3</span></td>
+                    <td><span class="employee2">E2</span>, <span class="employee3">E3</span></td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span class="tarde employee1">Tarde: E1</span></td>
+                    <td><span class="tarde employee3">Tarde: E3</span></td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            </table>
+            
+            <h3>Descansos semanales por empleado:</h3>
+            <ul>
+                <li><span class="employee1">Empleado 1</span>: Semana 1: Sáb-Dom, Semana 2: Mié-Jue, Semana 3: Lun-Mar</li>
+                <li><span class="employee2">Empleado 2</span>: Semana 1: Mié-Jue, Semana 2: Sáb-Dom, Semana 3: Vie-Sáb</li>
+                <li><span class="employee3">Empleado 3</span>: Semana 1: Vie-Sáb, Semana 2: Lun-Mar, Semana 3: Mié-Jue</li>
+            </ul>
+            
+            <h3>Calendario de vacaciones:</h3>
+            <ul>
+                <li><span class="employee1">Empleado 1</span>: 1-15 mayo y 1-15 agosto</li>
+                <li><span class="employee2">Empleado 2</span>: 16-31 mayo y 16-31 agosto</li>
+                <li><span class="employee3">Empleado 3</span>: 1-15 junio y 1-15 septiembre</li>
+            </ul>
+            
+            <p>Durante las vacaciones, los empleados disponibles asumirán todas las tardes del jueves y viernes.</p>
+            
+            <div class="month-title">
+                <h3>ABRIL 2025</h3>
+            </div>
+            <p>Semanas 1-4: Patrón base de rotación</p>
+            
+            <div class="month-title">
+                <h3>MAYO 2025</h3>
+            </div>
+            <p>1-15: Vacaciones de <span class="employee1">Empleado 1</span> (E2 y E3 cubren)<br>
+            16-31: Vacaciones de <span class="employee2">Empleado 2</span> (E1 y E3 cubren)</p>
+            
+            <div class="month-title">
+                <h3>JUNIO 2025</h3>
+            </div>
+            <p>1-15: Vacaciones de <span class="employee3">Empleado 3</span> (E1 y E2 cubren)<br>
+            16-30: Retorno al patrón base de rotación</p>
+            
+            <div class="month-title">
+                <h3>JULIO 2025</h3>
+            </div>
+            <p>Todo el mes: Patrón base de rotación</p>
+            
+            <div class="month-title">
+                <h3>AGOSTO 2025</h3>
+            </div>
+            <p>1-15: Vacaciones de <span class="employee1">Empleado 1</span> (E2 y E3 cubren)<br>
+            16-31: Vacaciones de <span class="employee2">Empleado 2</span> (E1 y E3 cubren)</p>
+            
+            <div class="month-title">
+                <h3>SEPTIEMBRE 2025</h3>
+            </div>
+            <p>1-15: Vacaciones de <span class="employee3">Empleado 3</span> (E1 y E2 cubren)<br>
+            16-30: Retorno al patrón base de rotación</p>
+        </div>
+    </div>
+    
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Remove "active" class from all tab buttons
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            // Show the current tab and add "active" class to the button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
